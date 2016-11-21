@@ -13,10 +13,10 @@ a. Clone frontend boilerplate into local bedita frontend path, normally this is 
       git clone git@github.com:bedita/boilerplate-api.git
 ```
 
-b. Copy *boilerplate/config/paths.php.sample* to *boilerplate/config/paths.php* and edit it, if necessary (see Note below).
-
-
-c. Copy *boilerplate/config/core.php.sample* to *boilerplate/config/core.php* and edit it, if necessary.
+b. Create configuration files from samples (frontend.cfg is optional):
+ - Copy *boilerplate/config/paths.php.sample* to *boilerplate/config/paths.php* and edit it, if necessary (see Note below).
+ - Copy *boilerplate/config/core.php.sample* to *boilerplate/config/core.php* and edit it, if necessary.
+ - [Copy *boilerplate/config/frontend.cfg.php.sample* to *boilerplate/config/frontend.cfg.php* and edit it, if necessary]
 
 
 d. Set write permissions for temporary folder *boilerplate/tmp*.
