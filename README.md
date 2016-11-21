@@ -1,7 +1,7 @@
-Boilerplate
-===========
+Boilerplate API REST
+====================
 
-HTML5 Boilerplate BEdita frontend from http://www.initializr.com/
+Boilerplate API REST as a BEdita frontend
 
 Setup
 =====
@@ -10,13 +10,13 @@ a. Clone frontend boilerplate into local bedita frontend path, normally this is 
 
 ```
       cd /var/www/bedita/frontends
-      git clone git@github.com:bedita/boilerplate.git
+      git clone git@github.com:bedita/boilerplate-api.git
 ```
 
-b. Copy *boilerplate/webroot/index.php.sample* to *boilerplate/webroot/index.php*.
+b. Copy *boilerplate/config/paths.php.sample* to *boilerplate/config/paths.php* and edit it, if necessary (see Note below).
 
 
-c. Copy *boilerplate/config/core.php.sample* to *boilerplate/config/core.php* and modify it, if necessary...
+c. Copy *boilerplate/config/core.php.sample* to *boilerplate/config/core.php* and edit it, if necessary.
 
 
 d. Set write permissions for temporary folder *boilerplate/tmp*.
@@ -34,7 +34,7 @@ Also read this article: http://docs.bedita.com/setup/if-something-goes-wrong-in-
 
 Note
 ====
-If your frontend path is not inside *bedita/frontends* but elsewhere, you may edit *boilerplate/webroot/index.php* and set properly CAKE_CORE_INCLUDE_PATH and BEDITA_CORE_PATH.
+If your frontend path is not inside *bedita/frontends* but elsewhere, you may edit *boilerplate/config/paths.php* and set properly CAKE_CORE_INCLUDE_PATH and BEDITA_CORE_PATH.
 For instance, if your bedita home path is /var/www/bedita:
 
 ```
