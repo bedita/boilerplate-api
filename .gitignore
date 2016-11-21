@@ -1,0 +1,29 @@
+# /
+/.project
+/*.settings
+/*.cache
+/.buildpath
+.DS_Store
+/.sass-cache
+/dist
+/.tmp
+
+# config
+/config/paths.php
+/config/core.php
+/config/frontend.cfg.php
+
+# webroot
+
+# tmp
+# /tmp
+
+# /webroot/
+/webroot/test.php
+/webroot/files
+
+# /webroot/img/
+/webroot/img/.directory
+
+# /webroot/js/libs/richtexteditors/conf/local
+/webroot/js/libs/richtexteditors/conf/local/*
