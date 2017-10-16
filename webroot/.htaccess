@@ -1,6 +1,44 @@
+DirectoryIndex index.php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+    RewriteRule ^(.*)$ index.php?url=$1 [env=HTTP_AUTHORIZATION:%{HTTP:Authorization},QSA,L]
 </IfModule>
+
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/octet-stream "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(ico|jpe?g|png|gif|svg|woff|map)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+  <FilesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=2692000, public"
+  </FilesMatch>
+  <FilesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=2692000, public"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+    Header append Cache-Control "public"
+
+    # avoid apache2 bug - http://stackoverflow.com/questions/896974/apache-is-not-sending-304-response-if-mod-deflate-and-addoutputfilterbytype-is
+    RequestHeader  edit "If-None-Match" "^\"(.*)-gzip\"$" "\"$1\""
+    Header  edit "ETag" "^\"(.*[^g][^z][^i][^p])\"$" "\"$1-gzip\""
+</IfModule>
+
